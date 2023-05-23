@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Section } from 'components/Section';
 import { FeedbackOptions } from 'components/FeedbackOptions';
@@ -31,7 +31,7 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     const options = Object.keys(this.state);
     const totalFeedback = this.countTotalFeedback();
-    const positiveFeedback =
+    const positiveFeedbackPercentage =
       this.countPositiveFeedbackPercentage(totalFeedback);
 
     return (
@@ -53,7 +53,7 @@ export class App extends Component {
               neutral={neutral}
               bad={bad}
               total={totalFeedback}
-              positivePercentage={positiveFeedback}
+              positivePercentage={positiveFeedbackPercentage}
             />
           ) : (
             <Notification message={'There is no feedback'} />
